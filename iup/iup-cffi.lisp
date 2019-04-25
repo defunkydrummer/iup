@@ -265,7 +265,10 @@
   (name attr-name)
   (value :string))
 
-(cffi:defcfun (%iup-get-global "IupGetGlobal") :string
+(cffi:defcfun (%iup-get-global "IupGetGlobal") :pointer
+  (name attr-name))
+
+(cffi:defcfun (%iup-get-str-global "IupGetGlobal") :string
   (name attr-name))
 
 (cffi:defcfun (%iup-set-focus "IupSetFocus") ihandle
