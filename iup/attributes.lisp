@@ -178,8 +178,9 @@
       (unregister-callback name handle))
   new-value)
 
-(defun (setf handle) (new-value name)
-  (iup-cffi::%iup-set-handle name new-value))
+(defun (setf handle) (new-value handle)
+  (iup-cffi::%iup-set-handle new-value handle)
+  new-value)
 
 (defun handle (name)
   (iup-cffi::%iup-get-handle name))
