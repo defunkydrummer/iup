@@ -120,6 +120,8 @@
                                  (:child-none nil)
                                  (otherwise '(cl:list child)))
                      do (iup-cffi::%iup-append ,handle c))
+               (when-let ((handlename (getf attributes :handlename)))
+                 (setf (iup:handle handlename) ,handle))
                ,handle))
            (export '(,classname-symbol) (find-package ,package))
            ,@(let ((callback-attributes (remove-if-not #'(lambda (attribute)
